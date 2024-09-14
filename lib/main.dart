@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mood_journal/features/journal/presentation/pages/journal_page.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:mood_journal/features/journal/presentation/screens/diary_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  initializeDateFormatting().then((_) => runApp(MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -11,12 +12,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: JournalPage(),
+      home: const DiaryScreen(),
     );
   }
 }
